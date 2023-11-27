@@ -1,0 +1,26 @@
+.image-container{
+  background-image: url(
+    "https://vni.s3.amazonaws.com/200316153338383.jpg"
+  );
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h2{
+  padding: 7%;
+  color:whitesmoke;
+  text-shadow: 1px 1px black;
+  font-size: 28px;
+}
+.row{
+  padding: 5%;
+  color: whitesmoke;
+  text-shadow: 1px 1px black;
+  font-size: 18px;
+}
+.small{
+  color: white;
+  font-size: 14px;
+  text-shadow: 1px 1px black;
+  text-align: center;
+}

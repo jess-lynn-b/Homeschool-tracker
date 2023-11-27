@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 offset-md-3">
+    <form (ngSubmit)="onAuthFormSubmit(authForm)"
+    #authForm="ngForm"
+    class="input-group">
+      <div class="form-group">
+        <label for="email"> Email </label>
+        <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        email
+        required
+        ngModel
+        autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label for="password"> Password </label>
+        <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        minlength="6"
+        required
+        ngModel
+        autocomplete="off"
+        />
+      </div>
+  <div class="form-group d-flex justify-content-between">
+    <button
+    class="btn btn-primary mr-3"
+    type="submit"
+    [disabled]="!authForm.valid"
+    >{{ isLoginMode ? "Login" : "Register" }}
+   </button>
+    <button
+    class="btn btn-sm btn-transparent text-primary"
+    type="button"
+    (click)="onSwitchAuthMode()"
+    >
+    Switch to {{ isLoginMode ? "Register" : " Login "}}
+  </button>
+  </div>
+  </form>
+<p class="alert alert-danger mt-3" *ngIf="errorMsg">
+{{ errorMsg }}
+</p>
+</div>

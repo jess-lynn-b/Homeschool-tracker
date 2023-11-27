@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -8,19 +8,24 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 
 export class ContactComponent implements OnInit{
-onSubmit(arg0: any) {
-throw new Error('Method not implemented.');
-}
-  FormData: FormGroup;
+
+  infoForm!: FormGroup;
 
   constructor(private builder: FormBuilder) {
   }
+
   ngOnInit(){
-    this.FormData = this.builder.group({
+    this.infoForm = this.builder.group({
       Fullname: new FormControl('', [Validators.required]),
-      Email: new FormControl('', [Validators.compose([Validators.required, Validators.email])]),
+      Email: new FormControl('', [Validators.required, Validators.email]),
       Comment: new FormControl('', [Validators.required])
     })
+  }
+  onSubmit() {
+    if (this.infoForm.valid) {
+      console.log("Submitting form: " , this.infoForm.value);
+    } else {
+    } console.error("Form is invalid");
   }
 }
 
